@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Clex</title>
+  </head>
+  <body>
+    <label for="seedInputField">Seed of waves account: </label>
+    <input id="seedInputField" type="text" placeholder="your seed">
+    <button id="signIn" type="button">sign in</button>
+    <hr>
+    <label for="fileToUpload">File to upload: </label>
+    <input type="file" id="fileToUpload">
+    <button id="uploadToBlockchain" type="button">send to blockchain</button>
+    <hr>
+    <label for="keystoreFile">Keystore of file: </label>
+    <input type="file" id="keystoreFile">
+    <button id="downloadFromBlockchain" type="button">download file</button>
+
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+    </script>
+  </body>
+</html>

@@ -1,11 +1,8 @@
-# Cryptex  - free Waves Cloud Storage.
+# Clex  - your own cloud storage in blockchain
 
-Encryption is simple.
+Clex is a simple, cheap and usefull cloud-storage-like system based on Waves blockchain.
+It was originally presented on Waves Blockchain Hackathon 2018.
 
-Follow our presentation on https://bit.ly/2EOCHGa
+Clex is an Open Source project covered by the GNU Affero General Public License v3.0 or later.
 
-This project was presented on Waves Blockchain Hackathon 2018.
-
-Produced by BIS team.
-
-Copyright BIS 2018.
+Written by BIS team.
