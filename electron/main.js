@@ -4,6 +4,7 @@ const {app, BrowserWindow} = require('electron')
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
+let pythonService
 
 function createWindow () {
   // Create the browser window.
@@ -14,6 +15,14 @@ function createWindow () {
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools()
+
+  // Spawn python service
+  const childProcess = require('child_process');
+  pythonService = childProcess.spawn('python3.6',["../src/rpc_service.py"])
+  pythonService.stdout.removeAllListeners("data");
+  pythonService.stderr.removeAllListeners("data");
+  pythonService.stdout.pipe(process.stdout);
+  pythonService.stderr.pipe(process.stderr);
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
@@ -46,5 +55,13 @@ app.on('activate', function () {
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// App close handler
+app.on('before-quit', function() {
+  try {
+    process.kill(pythonService.pid, 'SIGINT');
+    console.log( 'Quitting process with SIGINT' );
+  }
+  catch(error) {
+    console.error(error);
+  }
+});

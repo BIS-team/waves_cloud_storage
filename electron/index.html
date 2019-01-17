@@ -13,12 +13,16 @@
     <input type="file" id="fileToUpload">
     <button id="uploadToBlockchain" type="button">send to blockchain</button>
     <hr>
-    <label for="keystoreFile">Keystore of file: </label>
-    <input type="file" id="keystoreFile">
+    <label for="fileNameToDownload">Keystore of file: </label>
+    <input id="fileNameToDownload" type="text" placeholder="filename from history">
     <button id="downloadFromBlockchain" type="button">download file</button>
+    <hr>
+    <label for="getUploadHistory">Get upload history: </label>
+    <button id="getUploadHistory" type="button">get history</button>
+    <br>
+    <textarea id="uploadHistoryTextArea" rows="2" cols="50"></textarea>
 
     <script>
-      // You can also require other files to run in this process
       require('./renderer.js')
     </script>
   </body>
